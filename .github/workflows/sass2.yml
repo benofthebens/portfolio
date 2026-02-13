@@ -12,21 +12,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Get the repository files onto the runner
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Install Node.js (needed for npm + sass)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
+      # 3. Install dependencies
+      # npm install is REQUIRED because you do NOT have package-lock.json
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
+      # 4. Compile Sass using your package.json script
       - name: Compile Sass
         run: npm run sass
 
-      - name: List generated CSS files
+      # 5. Debug / verification (optional but useful)
+      - name: Verify CSS output
         run: |
-          echo "Contents of output folder:"
-          ls -la dist/css || true
+          echo "Generated files:"
+          ls -la dist/css
