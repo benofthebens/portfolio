@@ -1,0 +1,303 @@
+$color-amber: #FFBF00;
+$color-terracotta: #C46D5E;
+$color-offwhite: #FFFBFC;
+$color-teal: #6b6e6e;
+$color-purple:  rgba(43, 42, 42, 1);
+
+$color-primary: $color-teal;
+$font-serif: "Source Serif Pro", Georgia, serif;
+$max-width: 1300px;
+$breakpoint-mobile: 768px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-serif;
+  color: $color-teal;
+  background-color: $color-offwhite;
+}
+
+.image-placeholder {
+  background-color: transparent;
+}
+
+// Hero Section
+#hero {
+  display: flex;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 40px;
+  height: 100vh;
+
+  .hero-header-mobile {
+    display: none;
+  }
+
+  .hero-name {
+    display: flex;
+    align-items: flex-start;
+    padding-right: 40px;
+    max-height: 100%;
+    overflow: hidden;
+
+    span {
+      writing-mode: vertical-lr;
+      font-weight: bold;
+      font-size: 90px;
+      line-height: 1;
+      white-space: nowrap;
+      color: rgba(43, 42, 42, 1);
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .hero-top {
+    display: flex;
+    gap: 40px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .hero-main {
+    flex: 1.8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 0;
+
+    .image-placeholder {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 32px;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: $color-teal;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        i {
+          font-size: 28px;
+        }
+
+        span {
+          font-family: $font-serif;
+          font-size: 14px;
+        }
+
+        &:hover {
+          color: $color-terracotta;
+        }
+      }
+    }
+
+    .about-heading {
+      font-size: 28px;
+      font-weight: bold;
+      color: $color-purple;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  .hero-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: 0;
+
+    .image-placeholder {
+      width: 100%;
+      flex: 1;
+    }
+
+    .portfolio-title {
+      font-size: 80px;
+      font-weight: bold;
+      text-align: right;
+      color: $color-purple;
+    }
+  }
+}
+
+// Divider
+hr {
+  border: none;
+  border-top: 2px solid $color-teal;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+// Project Section
+#project {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 40px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .project-content {
+    display: flex;
+    gap: 40px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .project-text {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: 72px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: $color-purple;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+  }
+
+  .project-images {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .image-placeholder {
+      width: 100%;
+      flex: 1;
+    }
+  }
+}
+
+// Mobile
+@media (max-width: $breakpoint-mobile) {
+  #hero {
+    flex-direction: column;
+    height: auto;
+    padding: 24px;
+
+    .hero-header-mobile {
+      display: block;
+      margin-bottom: 24px;
+
+      h1 {
+        font-size: 56px;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      span {
+        font-size: 28px;
+        font-weight: normal;
+        display: block;
+        margin-top: 4px;
+      }
+    }
+
+    .hero-name {
+      display: none;
+    }
+
+    .hero-top {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-main {
+      .image-placeholder {
+        padding: 16px;
+      }
+
+      .hero-links {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .about-heading {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 16px;
+        flex: none;
+      }
+    }
+
+    .hero-side {
+      align-items: flex-start;
+
+      .image-placeholder {
+        min-height: 180px;
+        flex: none;
+      }
+
+      .portfolio-title {
+        display: none;
+      }
+    }
+  }
+
+  hr {
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  #project {
+    padding: 24px;
+    height: auto;
+
+    .project-content {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .project-text {
+      h2 {
+        font-size: 48px;
+      }
+    }
+
+    .project-images {
+      .image-placeholder {
+        min-height: 200px;
+        flex: none;
+      }
+    }
+  }
+}

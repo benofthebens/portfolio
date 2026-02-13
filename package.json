@@ -1,0 +1,12 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "sass": "sass src/scss/main.scss dist/css/main.css"
+  },
+  "private": true,
+  "dependencies": {
+    "sass": "^1.97.3"
+  }
+}
